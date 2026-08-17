@@ -28,3 +28,9 @@ Use `pnpm check` para validar TypeScript, `pnpm test` para executar os testes Vi
 ## Próxima iteração
 
 A próxima sessão pode substituir os visuais abstratos por fotografias reais, ampliar o storytelling do portfolio, completar a tradução inglesa das áreas privadas e refinar a direção visual sem alterar o backend funcional.
+
+## Configuração
+
+As credenciais e configurações são injetadas pela gestão do projeto; não crie um `.env` no repositório. A aplicação utiliza `DATABASE_URL`, `JWT_SECRET`, `VITE_APP_ID`, `OAUTH_SERVER_URL`, `VITE_OAUTH_PORTAL_URL`, `OWNER_OPEN_ID`, `OWNER_NAME`, `BUILT_IN_FORGE_API_URL`, `BUILT_IN_FORGE_API_KEY`, `VITE_FRONTEND_FORGE_API_URL`, `VITE_FRONTEND_FORGE_API_KEY`, `VITE_ANALYTICS_ENDPOINT` e `VITE_ANALYTICS_WEBSITE_ID`. Os valores devem ser administrados pela secção de Secrets da interface.
+
+O build atual termina com sucesso. O aviso de chunk JavaScript superior a 500 kB é não bloqueante e fica registado para uma futura divisão de bundles caso o trabalho visual continue.
