@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
 
 /**
@@ -13,6 +14,7 @@ import { toast } from "sonner";
 export default function AdminDashboard() {
   const { user, isAuthenticated, loading } = useAuth();
   const [, setLocation] = useLocation();
+  const { language, toggleLanguage } = useLanguage();
   const [tab, setTab] = useState<"leads" | "legal" | "finance">("leads");
 
   // CRM Queries
@@ -125,6 +127,9 @@ export default function AdminDashboard() {
             <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: 20, fontWeight: 700, color: "#C9A96E" }}>ÁUREA 3D — Admin</h1>
             <button onClick={() => setLocation("/automations")} style={{ background: "transparent", border: "1px solid rgba(201,169,110,.2)", borderRadius: 20, padding: "6px 16px", color: "#C9A96E", fontSize: 12, cursor: "pointer" }}>
               AutomationPanel
+            </button>
+            <button type="button" onClick={toggleLanguage} aria-label={language === "es" ? "Cambiar a inglés" : "Switch to Spanish"} style={{ background: "transparent", border: "1px solid rgba(201,169,110,.2)", borderRadius: 20, padding: "6px 12px", color: "rgba(245,241,232,.65)", fontSize: 11, cursor: "pointer" }}>
+              {language.toUpperCase()}
             </button>
           </div>
           <button onClick={() => setLocation("/")} style={{ background: "transparent", border: "1px solid rgba(201,169,110,.2)", borderRadius: 20, padding: "6px 16px", color: "rgba(245,241,232,.5)", fontSize: 12, cursor: "pointer" }}>

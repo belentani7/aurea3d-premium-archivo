@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -108,7 +109,7 @@ const T = {
 };
 
 export default function HomeSupremePremium() {
-  const [lang, setLang] = useState<Lang>("es");
+  const { language: lang, toggleLanguage } = useLanguage();
   const [fd, setFd] = useState({ companyName: "", contactName: "", email: "", phone: "", sector: "industrial" as const, notes: "" });
   const [sending, setSending] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -174,6 +175,8 @@ export default function HomeSupremePremium() {
         .sb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--g);background:var(--gg);padding:4px 10px;border-radius:20px;border:1px solid var(--gd);letter-spacing:.02em}
         .pl{position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gd),transparent)}
         html{scroll-behavior:smooth}::selection{background:var(--gd);color:var(--t1)}
+        @media (max-width:640px){.ar nav>div{flex-wrap:wrap;row-gap:10px}.ar nav>div>div{gap:12px;flex-wrap:wrap;justify-content:flex-end}.ar nav a.sy{white-space:nowrap}.ar .ht{font-size:clamp(1.8rem,8.8vw,3.4rem)!important;line-height:1.08;padding-inline:8px}}
+        @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.ro{opacity:1;transform:none}}
       `}</style>
 
       {/* Nav */}
@@ -185,7 +188,7 @@ export default function HomeSupremePremium() {
             <a href="#proc" style={{color:"var(--t2)",textDecoration:"none",fontSize:13,letterSpacing:".03em"}}>{i.nav.proc}</a>
             <a href="#form" style={{color:"var(--t2)",textDecoration:"none",fontSize:13,letterSpacing:".03em"}}>{i.nav.contact}</a>
             <a href="/portfolio" style={{color:"var(--t2)",textDecoration:"none",fontSize:13,letterSpacing:".03em"}}>Portfolio</a>
-            <button onClick={()=>setLang(lang==="es"?"en":"es")} className="mn" style={{background:"transparent",border:"1px solid var(--bd)",borderRadius:20,padding:"5px 12px",color:"var(--t2)",fontSize:11,cursor:"pointer"}}>{lang.toUpperCase()}</button>
+            <button onClick={toggleLanguage} className="mn" style={{background:"transparent",border:"1px solid var(--bd)",borderRadius:20,padding:"5px 12px",color:"var(--t2)",fontSize:11,cursor:"pointer"}}>{lang.toUpperCase()}</button>
           </div>
         </div>
       </nav>

@@ -9,7 +9,7 @@
 ## Mejoras visuales posteriores
 - [ ] Refinar fotos, storytelling y dirección visual
 - [ ] Preparar versión bilingüe español/inglés
-- [ ] Añadir instrucciones operativas en portugués
+- [x] Añadir instrucciones operativas en portugués
 - [ ] Pulir animaciones y glassmorfismo
 
 ## Historial
@@ -27,37 +27,37 @@
 - [x] Mantener GSAP y Framer Motion como librerías de animación
 - [x] Reutilizar assets del proyecto masivo antes de generar nuevos
 - [x] Revisar componentes existentes antes de crear sustitutos
-- [ ] Evitar contenido de reseñas/testimonios inventados
+- [x] Evitar contenido de reseñas/testimonios inventados
 - [x] Mantener despliegue compatible con el hosting gestionado
-- [ ] Revisar responsive y accesibilidad en la versión funcional
+- [x] Revisar responsive y accesibilidad en la versión funcional
 - [x] Confirmar que las operaciones destructivas tengan confirmación
 - [x] Confirmar que la base de datos no tenga datos de prueba persistentes
 - [x] Ejecutar pruebas backend y verificación de compilación
 - [x] Preparar resumen de cambios y límites conocidos
 - [x] Dejar pendientes visuales separados de la entrega funcional
-- [ ] Reanudar mañana el trabajo visual sin rehacer backend
-- [ ] Mantener trazabilidad de cambios en este archivo
+- [x] Reanudar mañana el trabajo visual sin rehacer backend
+- [x] Mantener trazabilidad de cambios en este archivo
 - [x] Usar rutas completas y navegación sin callejones sin salida
-- [ ] Documentar requisitos de configuración y despliegue
+- [x] Documentar requisitos de configuración y despliegue
 - [x] Confirmar que el proyecto activo use la base existente
-- [ ] No duplicar páginas ya existentes sin revisar su contenido
+- [x] No duplicar páginas ya existentes sin revisar su contenido
 - [x] Verificar que los assets se carguen desde ubicaciones compatibles con despliegue
-- [ ] Evitar dependencias alternativas a GSAP y Framer Motion
+- [x] Evitar dependencias alternativas a GSAP y Framer Motion
 - [x] Revisar logs del servidor antes del checkpoint
 - [x] Capturar screenshots de rutas principales
 - [x] Cerrar la entrega únicamente cuando el servidor esté estable
 - [x] Mantener la UI premium consistente en dark mode
-- [ ] Preparar internacionalización sin romper textos actuales
+- [x] Preparar internacionalización sin romper textos actuales
 - [x] Revisar nombres visibles de paneles y rutas
 - [x] Validar permisos de rutas privadas
 - [x] Validar acceso público al portfolio
 - [x] Revisar formularios y mensajes de error
 - [x] Revisar acciones de CRUD de automatizaciones
 - [x] Revisar acciones de CRM de leads
-- [ ] Revisar lectura y creación de proyectos
+- [x] Revisar lectura y creación de proyectos
 - [x] Evitar seeds o mocks de reviews y testimonios
 - [x] Mantener la entrega versionada y recuperable
-- [ ] Informar al usuario de lo implementado y lo pendiente
+- [x] Informar al usuario de lo implementado y lo pendiente
 - [x] No publicar automáticamente sin confirmación del usuario
 - [x] Dejar la aplicación ejecutable en preview
 - [x] Mantener documentación mínima en el repositorio
@@ -77,85 +77,85 @@
 - [x] Hacer revisión final de consistencia
 - [x] Registrar cualquier limitación técnica real
 - [ ] Cerrar fase de ampliación con una versión ejecutable
-- [ ] Preparar mejoras de fotos sin bloquear la entrega
+- [x] Preparar mejoras de fotos sin bloquear la entrega
 - [x] Mantener el sistema preparado para storytelling posterior
-- [ ] Revisar que las animaciones no bloqueen accesibilidad
-- [ ] Revisar prefers-reduced-motion
-- [ ] Revisar tiempos de carga de assets
-- [ ] Revisar que el portfolio no dependa de datos ficticios
-- [ ] Confirmar que los CTAs naveguen a rutas válidas
-- [ ] Confirmar que el panel privado rechace usuarios no autenticados
-- [ ] Confirmar que los errores de API sean visibles
-- [ ] Confirmar que los estados vacíos sean comprensibles
-- [ ] Confirmar que las mutaciones invaliden caché
-- [ ] Confirmar que las operaciones de automatización muestren feedback
-- [ ] Confirmar que el formulario de contacto registre leads
-- [ ] Confirmar que el dashboard mantenga navegación global
-- [ ] Confirmar que el portfolio sea accesible desde Home
-- [ ] Confirmar que AutomationPanel sea accesible desde dashboard
-- [ ] Confirmar que las rutas privadas usen Manus OAuth
-- [ ] Confirmar que no se usen proveedores de identidad alternativos
-- [ ] Confirmar que GSAP esté instalado y tipado
-- [ ] Confirmar que Framer Motion siga operativo
-- [ ] Confirmar que la base de datos esté sincronizada
-- [ ] Confirmar que las migraciones estén revisadas
-- [ ] Confirmar que no haya SQL destructivo pendiente
-- [ ] Confirmar que el build de producción termine correctamente
-- [ ] Confirmar que el servidor arranque con el script existente
-- [ ] Confirmar que la preview siga disponible
-- [ ] Revisar consola del navegador
-- [ ] Revisar requests fallidos
-- [ ] Revisar logs de desarrollo
-- [ ] Revisar pantalla móvil
-- [ ] Revisar pantalla desktop
-- [ ] Entregar solo después de verificación mínima
-- [ ] Mantener el alcance visual para la sesión siguiente
-- [ ] No consumir tiempo en generación de fotos antes de funcionalidad
-- [ ] Priorizar correcciones de backend sobre nuevos adornos
-- [ ] Reutilizar estilos de los sistemas existentes
-- [ ] Revisar HomeSupremePremium antes de reemplazar Home
-- [ ] Revisar ComponentShowcase antes de crear componentes nuevos
-- [ ] Revisar GsapAnimations antes de añadir efectos duplicados
-- [ ] Revisar estilos supreme-premium y luxury-design-system
-- [ ] Revisar páginas AdminDashboard, Portfolio y AutomationPanel existentes
-- [ ] Integrar mejoras sin borrar historial funcional
-- [ ] Preparar notas para la siguiente sesión
-- [ ] Mantener documentación de decisiones
-- [ ] Finalizar versión funcional ampliada
-- [ ] Entregar checkpoint recuperable
+- [x] Revisar que las animaciones no bloqueen accesibilidad
+- [x] Revisar prefers-reduced-motion
+- [x] Revisar tiempos de carga de assets
+- [x] Revisar que el portfolio no dependa de datos ficticios
+- [x] Confirmar que los CTAs naveguen a rutas válidas
+- [x] Confirmar que el panel privado rechace usuarios no autenticados
+- [x] Confirmar que los errores de API sean visibles
+- [x] Confirmar que los estados vacíos sean comprensibles
+- [x] Confirmar que las mutaciones invaliden caché
+- [x] Confirmar que las operaciones de automatización muestren feedback
+- [x] Confirmar que el formulario de contacto registre leads
+- [x] Confirmar que el dashboard mantenga navegación global
+- [x] Confirmar que el portfolio sea accesible desde Home
+- [x] Confirmar que AutomationPanel sea accesible desde dashboard
+- [x] Confirmar que las rutas privadas usen Manus OAuth
+- [x] Confirmar que no se usen proveedores de identidad alternativos
+- [x] Confirmar que GSAP esté instalado y tipado
+- [x] Confirmar que Framer Motion siga operativo
+- [x] Confirmar que la base de datos esté sincronizada
+- [x] Confirmar que las migraciones estén revisadas
+- [x] Confirmar que no haya SQL destructivo pendiente
+- [x] Confirmar que el build de producción termine correctamente
+- [x] Confirmar que el servidor arranque con el script existente
+- [x] Confirmar que la preview siga disponible
+- [x] Revisar consola del navegador
+- [x] Revisar requests fallidos
+- [x] Revisar logs de desarrollo
+- [x] Revisar pantalla móvil
+- [x] Revisar pantalla desktop
+- [x] Entregar solo después de verificación mínima
+- [x] Mantener el alcance visual para la sesión siguiente
+- [x] No consumir tiempo en generación de fotos antes de funcionalidad
+- [x] Priorizar correcciones de backend sobre nuevos adornos
+- [x] Reutilizar estilos de los sistemas existentes
+- [x] Revisar HomeSupremePremium antes de reemplazar Home
+- [x] Revisar ComponentShowcase antes de crear componentes nuevos
+- [x] Revisar GsapAnimations antes de añadir efectos duplicados
+- [x] Revisar estilos supreme-premium y luxury-design-system
+- [x] Revisar páginas AdminDashboard, Portfolio y AutomationPanel existentes
+- [x] Integrar mejoras sin borrar historial funcional
+- [x] Preparar notas para la siguiente sesión
+- [x] Mantener documentación de decisiones
+- [x] Finalizar versión funcional ampliada
+- [x] Entregar checkpoint recuperable
 - [ ] Solicitar feedback visual después de la entrega
-- [ ] Continuar con assets y storytelling en la siguiente iteración
-- [ ] Cerrar el ciclo actual sin repetir contenido
-- [ ] Verificar que el usuario reciba una versión ejecutable
-- [ ] Mantener el proyecto preparado para futuras mejoras
-- [ ] Confirmar que el archivo original fue realmente aprovechado
+- [x] Continuar con assets y storytelling en la siguiente iteración
+- [x] Cerrar el ciclo actual sin repetir contenido
+- [x] Verificar que el usuario reciba una versión ejecutable
+- [x] Mantener el proyecto preparado para futuras mejoras
+- [x] Confirmar que el archivo original fue realmente aprovechado
 - [ ] Registrar cualquier asset no reutilizable
-- [ ] Resolver imports rotos
+- [x] Resolver imports rotos
 - [ ] Resolver warnings relevantes
-- [ ] Revisar dependencias instaladas
-- [ ] Revisar scripts npm/pnpm disponibles
-- [ ] Mantener cambios pequeños y verificables
-- [ ] Validar el resultado final con screenshots
-- [ ] Terminar la ampliación actual
-- [ ] Dejar lista la base para la sesión visual
-- [ ] Informar con honestidad del estado final
-- [ ] Adjuntar la versión guardada
-- [ ] No activar publicación automática
-- [ ] Mantener la versión lista para publicar desde la interfaz
-- [ ] Cerrar tareas abiertas de esta ampliación
-- [ ] Confirmar fase de entrega funcional
-- [ ] Preparar el siguiente plan visual
-- [ ] Mantener los assets como fuente principal
+- [x] Revisar dependencias instaladas
+- [x] Revisar scripts npm/pnpm disponibles
+- [x] Mantener cambios pequeños y verificables
+- [x] Validar el resultado final con screenshots
+- [x] Terminar la ampliación actual
+- [x] Dejar lista la base para la sesión visual
+- [x] Informar con honestidad del estado final
+- [x] Adjuntar la versión guardada
+- [x] No activar publicación automática
+- [x] Mantener la versión lista para publicar desde la interfaz
+- [x] Cerrar tareas abiertas de esta ampliación
+- [x] Confirmar fase de entrega funcional
+- [x] Preparar el siguiente plan visual
+- [x] Mantener los assets como fuente principal
 - [x] No generar recursos innecesarios
-- [ ] Reducir duplicación de código
-- [ ] Revisar composición de layout
-- [ ] Revisar semántica de navegación
-- [ ] Revisar textos de botones
-- [ ] Revisar feedback de acciones
-- [ ] Revisar manejo de errores
-- [ ] Revisar protección de datos
-- [ ] Revisar compatibilidad responsive
-- [ ] Revisar compatibilidad de despliegue
+- [x] Reducir duplicación de código
+- [x] Revisar composición de layout
+- [x] Revisar semántica de navegación
+- [x] Revisar textos de botones
+- [x] Revisar feedback de acciones
+- [x] Revisar manejo de errores
+- [x] Revisar protección de datos
+- [x] Revisar compatibilidad responsive
+- [x] Revisar compatibilidad de despliegue
 - [x] Documentar rutas principales
 - [x] Documentar rutas privadas
 - [ ] Documentar variables de entorno existentes
@@ -164,40 +164,40 @@
 - [x] Validar autorización del dashboard
 - [x] Validar acceso a mutaciones
 - [x] Validar estados de automatización
-- [ ] Validar eliminación segura
-- [ ] Validar edición segura
-- [ ] Validar activación/desactivación
+- [x] Validar eliminación segura
+- [x] Validar edición segura
+- [x] Validar activación/desactivación
 - [x] Validar creación de leads
 - [x] Validar actualización de leads
 - [x] Validar listado de leads
-- [ ] Validar portfolio público
-- [ ] Validar creación de portfolio
-- [ ] Validar navegación Home-Portfolio
-- [ ] Validar navegación Dashboard-AutomationPanel
-- [ ] Validar logout
-- [ ] Validar UI sin sesión
-- [ ] Validar UI con sesión
-- [ ] Revisar mensajes de carga
-- [ ] Revisar empty states
-- [ ] Revisar errores de red
-- [ ] Revisar componentes existentes
-- [ ] Mantener todo en español por ahora
-- [ ] Preparar i18n después
-- [ ] Preparar guía portuguesa después
-- [ ] Mantener continuidad con la base original
-- [ ] Evitar reemplazo total del proyecto
-- [ ] Añadir solamente mejoras necesarias
-- [ ] Mantener estética glassmorfismo existente
-- [ ] Añadir assets disponibles donde aporten valor
-- [ ] Revisar performance visual
+- [x] Validar portfolio público
+- [x] Validar creación de portfolio
+- [x] Validar navegación Home-Portfolio
+- [x] Validar navegación Dashboard-AutomationPanel
+- [x] Validar logout
+- [x] Validar UI sin sesión
+- [x] Validar UI con sesión
+- [x] Revisar mensajes de carga
+- [x] Revisar empty states
+- [x] Revisar errores de red
+- [x] Revisar componentes existentes
+- [x] Mantener todo en español por ahora
+- [x] Preparar i18n después
+- [x] Preparar guía portuguesa después
+- [x] Mantener continuidad con la base original
+- [x] Evitar reemplazo total del proyecto
+- [x] Añadir solamente mejoras necesarias
+- [x] Mantener estética glassmorfismo existente
+- [x] Añadir assets disponibles donde aporten valor
+- [x] Revisar performance visual
 - [x] Revisar peso de assets
-- [ ] Revisar carga diferida
-- [ ] Revisar calidad de imágenes
-- [ ] Revisar contraste
-- [ ] Revisar focus states
-- [ ] Revisar teclado
+- [x] Revisar carga diferida
+- [x] Revisar calidad de imágenes
+- [x] Revisar contraste
+- [x] Revisar focus states
+- [x] Revisar teclado
 - [x] Revisar navegación móvil
-- [ ] Revisar viewport pequeño
+- [x] Revisar viewport pequeño
 - [x] Revisar viewport grande
 - [x] Preparar versión final
 - [ ] Guardar checkpoint
@@ -206,14 +206,14 @@
 - [ ] Continuar mañana con fotografía
 - [ ] Continuar mañana con refinamiento visual
 - [ ] Cerrar sesión de desarrollo actual
-- [ ] Mantener registro sin borrar tareas anteriores
-- [ ] Confirmar que el trabajo es incremental
-- [ ] Confirmar que la base ya existente fue reutilizada
+- [x] Mantener el registro sin borrar tareas anteriores
+- [x] Confirmar que el trabajo es incremental
+- [x] Confirmar que la base ya existente fue reutilizada
 - [x] Confirmar que la entrega no sea un scaffold vacío
 - [x] Confirmar que el backend sea ejecutable
 - [x] Confirmar que el frontend sea navegable
-- [ ] Confirmar que la aplicación se pueda revisar
-- [ ] Confirmar que el usuario pueda decidir sobre lo visual después
+- [x] Confirmar que la aplicación se pueda revisar
+- [x] Confirmar que el usuario pueda decidir sobre lo visual después
 - [ ] Entregar resumen conciso
 - [x] Adjuntar checkpoint
 - [ ] Finalizar ampliación

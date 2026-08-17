@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import type { ComponentType } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import HomeSupremePremium from "./pages/HomeSupremePremium";
 import Portfolio from "./pages/Portfolio";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -47,10 +48,12 @@ export default function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

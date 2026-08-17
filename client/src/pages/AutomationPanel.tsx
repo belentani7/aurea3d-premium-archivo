@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { trpc } from "@/lib/trpc";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { Pencil, Plus, Trash2, Workflow, Zap } from "lucide-react";
 import { useState } from "react";
@@ -24,34 +25,49 @@ type FormState = {
 const emptyForm: FormState = { name: "", description: "", trigger: "", action: "" };
 
 export default function AutomationPanel() {
+  const { language, toggleLanguage } = useLanguage();
+  const isEnglish = language === "en";
   const query = trpc.automations.list.useQuery();
   const utils = trpc.useUtils();
   const createMutation = trpc.automations.create.useMutation({
     onSuccess: () => {
       void utils.automations.list.invalidate();
       setForm(emptyForm);
+      setStatusMessage("Automatización creada correctamente.");
       toast.success("Automatización creada");
     },
-    onError: () => toast.error("No se pudo crear la automatización"),
+    onError: () => {
+      setStatusMessage("No se pudo crear la automatización.");
+      toast.error("No se pudo crear la automatización");
+    },
   });
   const updateMutation = trpc.automations.update.useMutation({
     onSuccess: () => {
       void utils.automations.list.invalidate();
       setEditingId(null);
+      setStatusMessage("Automatización actualizada correctamente.");
       toast.success("Automatización actualizada");
     },
-    onError: () => toast.error("No se pudo actualizar la automatización"),
+    onError: () => {
+      setStatusMessage("No se pudo actualizar la automatización.");
+      toast.error("No se pudo actualizar la automatización");
+    },
   });
   const deleteMutation = trpc.automations.delete.useMutation({
     onSuccess: () => {
       void utils.automations.list.invalidate();
+      setStatusMessage("Automatización eliminada correctamente.");
       toast.success("Automatización eliminada");
     },
-    onError: () => toast.error("No se pudo eliminar la automatización"),
+    onError: () => {
+      setStatusMessage("No se pudo eliminar la automatización.");
+      toast.error("No se pudo eliminar la automatización");
+    },
   });
 
   const [form, setForm] = useState<FormState>(emptyForm);
   const [editingId, setEditingId] = useState<number | null>(null);
+  const [statusMessage, setStatusMessage] = useState("");
 
   const submit = () => {
     if (!form.name.trim() || !form.trigger || !form.action) {
@@ -93,11 +109,13 @@ export default function AutomationPanel() {
         <motion.header initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-5 flex gap-3 text-sm">
             <a href="/dashboard" className="text-violet-200 transition hover:text-white">← Dashboard</a>
-            <a href="/" className="text-white/45 transition hover:text-white">Sitio público</a>
+            <a href="/" className="text-white/45 transition hover:text-white">{isEnglish ? "Public site" : "Sitio público"}</a>
+            <button type="button" onClick={toggleLanguage} className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60 transition hover:border-white/30 hover:text-white" aria-label={isEnglish ? "Switch to Spanish" : "Cambiar a inglés"}>{language.toUpperCase()}</button>
           </div>
-          <p className="text-xs uppercase tracking-[0.22em] text-violet-300/70">Operaciones</p>
-          <h1 className="mt-2 text-4xl font-semibold text-white">AutomationPanel</h1>
-          <p className="mt-2 max-w-2xl text-white/60">Automatiza el seguimiento de leads con flujos persistidos y controlables desde este panel.</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-violet-300/70">{isEnglish ? "Operations" : "Operaciones"}</p>
+          <h1 className="mt-2 break-all text-3xl font-semibold text-white sm:text-4xl">AutomationPanel</h1>
+          <p className="mt-2 max-w-2xl text-white/60">{isEnglish ? "Automate lead follow-up with persisted workflows you can control from this panel." : "Automatiza el seguimiento de leads con flujos persistidos y controlables desde este panel."}</p>
+          <div aria-live="polite" className="mt-4 min-h-6 text-sm text-emerald-200">{statusMessage}</div>
         </motion.header>
 
         <section className="grid gap-5 md:grid-cols-3">

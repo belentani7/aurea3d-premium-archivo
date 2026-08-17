@@ -110,7 +110,7 @@ export const appRouter = router({
       .input(z.object({
         title: z.string().min(1),
         description: z.string().optional(),
-        imageUrl: z.string().url().optional(),
+        imageUrl: z.string().refine((value) => value.startsWith("/manus-storage/") || value.startsWith("https://") || value.startsWith("http://"), "URL o ruta de storage válida requerida").optional(),
         category: z.string().optional(),
         link: z.string().url().optional(),
         featured: z.number().int().min(0).max(1).optional(),
@@ -121,7 +121,7 @@ export const appRouter = router({
         id: z.number(),
         title: z.string().optional(),
         description: z.string().optional(),
-        imageUrl: z.string().url().optional(),
+        imageUrl: z.string().refine((value) => value.startsWith("/manus-storage/") || value.startsWith("https://") || value.startsWith("http://"), "URL o ruta de storage válida requerida").optional(),
         category: z.string().optional(),
         link: z.string().url().optional(),
         featured: z.number().int().min(0).max(1).optional(),
