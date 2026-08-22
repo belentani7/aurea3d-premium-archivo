@@ -10,11 +10,15 @@ La trazabilidad de versiones se conserva en Git mediante los commits `f07aee7`, 
 
 ## Assets
 
-Los assets SVG persistentes utilizados por el Portfolio se referencian desde almacenamiento compatible con el despliegue. El código conserva las URLs persistentes y el archivo incluye la documentación de su uso. No se incluyen `node_modules`, `dist`, logs internos del sandbox, secretos, archivos `.env` ni credenciales.
+Los assets SVG persistentes utilizados por el Portfolio se referencian desde almacenamiento compatible con el despliegue. El código conserva las URLs persistentes y el archivo incluye la documentación de su uso. No se incluyen `node_modules`, `dist`, logs internos del sandbox, secretos, archivos `.env` ni credenciales. Tampoco se incluyen las carpetas locales `docs/` y `skills/` generadas automáticamente por `gws generate-skills`: son documentación temporal del CLI, no contenido producido por el proyecto ni por el chat, y se excluyen deliberadamente para evitar mezclar herramientas internas con el archivo del producto.
 
 ## Conversación
 
 `CHAT_DISPONIBLE.md` contiene el resumen fiel del historial recuperable. No se presenta como una transcripción literal completa, porque el export íntegro del chat no está disponible para lectura directa tras la compactación de contexto.
+
+## Contenido incluido
+
+El paquete se construye desde el árbol versionado de Git en `HEAD`, por lo que incluye el código, los documentos y los archivos de configuración realmente versionados. `VERSIONES.md` conserva la trazabilidad de commits; `CHAT_DISPONIBLE.md` conserva el resumen conversacional recuperable; `AUDITORIA.md` conserva el informe solicitado.
 
 ## Destinos previstos
 

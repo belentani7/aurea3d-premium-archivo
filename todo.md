@@ -243,12 +243,12 @@
 - [x] Finalizar. — cierre de esta iteración registrado
 
 ## Archivo externo solicitado
-- [ ] Inventariar código, documentación, assets, versiones y notas del proyecto
-- [ ] Crear manifiesto de archivos y versiones archivadas
-- [ ] Crear exportación del historial conversacional disponible sin inventar contenido
-- [ ] Crear repositorio nuevo y privado en GitHub para el archivo
-- [ ] Subir el archivo completo al repositorio privado
-- [ ] Crear carpeta de archivo en Google Drive
-- [ ] Subir el archivo completo a Google Drive
-- [ ] Verificar integridad y accesibilidad de ambos destinos
-- [ ] Entregar únicamente el informe de archivo al usuario
+- [x] Inventariar código, documentación, assets, versiones y notas del proyecto
+- [x] Crear manifiesto de archivos y versiones archivadas
+- [x] Crear exportación del historial conversacional disponible sin inventar contenido
+- [x] Crear repositorio nuevo y privado en GitHub para el archivo
+- [x] Subir el archivo completo al repositorio privado
+- [x] Crear carpeta de archivo en Google Drive
+- [x] Subir el archivo completo a Google Drive
+- [x] Verificar integridad y accesibilidad de ambos destinos
+- [x] Entregar únicamente el informe de archivo al usuario
