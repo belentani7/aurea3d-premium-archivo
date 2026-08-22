@@ -241,3 +241,14 @@
 - [x] Cerrar ampliación solicitada — entrega funcional cerrada; visuales avanzados quedan separados
 - [x] Entregar sin texto repetido — resumen final conciso
 - [x] Finalizar. — cierre de esta iteración registrado
+
+## Archivo externo solicitado
+- [ ] Inventariar código, documentación, assets, versiones y notas del proyecto
+- [ ] Crear manifiesto de archivos y versiones archivadas
+- [ ] Crear exportación del historial conversacional disponible sin inventar contenido
+- [ ] Crear repositorio nuevo y privado en GitHub para el archivo
+- [ ] Subir el archivo completo al repositorio privado
+- [ ] Crear carpeta de archivo en Google Drive
+- [ ] Subir el archivo completo a Google Drive
+- [ ] Verificar integridad y accesibilidad de ambos destinos
+- [ ] Entregar únicamente el informe de archivo al usuario
