@@ -122,12 +122,13 @@ export default function HomeSupremePremium() {
       (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("rv"); }),
       { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
-    document.querySelectorAll(".ro").forEach((el) => obs.observe(el));
+    rootRef.current?.querySelectorAll(".ro").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, [lang]);
 
   // GSAP aporta el parallax del ambiente; Framer Motion gestiona AutomationPanel.
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const context = gsap.context(() => {
       gsap.fromTo(".hero-ambient", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1.08, duration: 1.2, ease: "power3.out" });
       gsap.to(".hero-ambient", {
@@ -147,12 +148,12 @@ export default function HomeSupremePremium() {
       await createLead.mutateAsync({ companyName: fd.companyName, contactName: fd.contactName, email: fd.email, phone: fd.phone || undefined, sector: fd.sector, notes: fd.notes || undefined });
       toast.success(i.form.ok);
       setFd({ companyName: "", contactName: "", email: "", phone: "", sector: "industrial", notes: "" });
-    } catch { toast.error("Error"); }
+    } catch { toast.error(lang === "es" ? "No se pudo enviar la solicitud. Inténtelo de nuevo." : "Could not send your request. Please try again."); }
     finally { setSending(false); }
   };
 
   return (
-    <div className="ar" ref={rootRef}>
+    <div className="ar" ref={rootRef} lang={lang}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap');
         .ar{--bg:#050505;--bg2:#0a0a0a;--gl:rgba(10,10,10,0.72);--g:#C9A96E;--gd:rgba(201,169,110,0.2);--gg:rgba(201,169,110,0.06);--bz:#8A734E;--t1:#F5F1E8;--t2:rgba(245,241,232,0.6);--t3:rgba(245,241,232,0.3);--bd:rgba(201,169,110,0.1);--bdh:rgba(201,169,110,0.28);font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -171,11 +172,13 @@ export default function HomeSupremePremium() {
         .bp:hover{color:var(--bg);border-color:var(--g)}.bp:hover::before{transform:scaleX(1)}.bp:active{transform:scale(.97)}.bp span{position:relative;z-index:1}
         .bp:disabled{opacity:.5;cursor:not-allowed}
         .if{background:rgba(10,10,10,.85);border:1px solid var(--bd);border-radius:12px;padding:14px 18px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;width:100%;transition:border-color .3s;outline:none}
-        .if:focus{border-color:var(--gd);box-shadow:0 0 0 3px var(--gg)}.if::placeholder{color:var(--t3)}
+        .if:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--gd)}.if::placeholder{color:var(--t3)}
+        .ar :focus-visible{outline:2px solid var(--g);outline-offset:3px}
+        .ar .if{min-width:0}
         .sb{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--g);background:var(--gg);padding:4px 10px;border-radius:20px;border:1px solid var(--gd);letter-spacing:.02em}
         .pl{position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gd),transparent)}
         html{scroll-behavior:smooth}::selection{background:var(--gd);color:var(--t1)}
-        @media (max-width:640px){.ar nav>div{flex-wrap:wrap;row-gap:10px}.ar nav>div>div{gap:12px;flex-wrap:wrap;justify-content:flex-end}.ar nav a.sy{white-space:nowrap}.ar .ht{font-size:clamp(1.8rem,8.8vw,3.4rem)!important;line-height:1.08;padding-inline:8px}}
+        @media (max-width:640px){.ar .ar-form-grid{grid-template-columns:1fr!important}.ar nav>div{flex-wrap:wrap;row-gap:10px}.ar nav>div>div{gap:12px;flex-wrap:wrap;justify-content:flex-end}.ar nav a.sy{white-space:nowrap}.ar .ht{font-size:clamp(1.8rem,8.8vw,3.4rem)!important;line-height:1.08;padding-inline:8px}}
         @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.ro{opacity:1;transform:none}}
       `}</style>
 
@@ -188,7 +191,7 @@ export default function HomeSupremePremium() {
             <a href="#proc" style={{color:"var(--t2)",textDecoration:"none",fontSize:13,letterSpacing:".03em"}}>{i.nav.proc}</a>
             <a href="#form" style={{color:"var(--t2)",textDecoration:"none",fontSize:13,letterSpacing:".03em"}}>{i.nav.contact}</a>
             <a href="/portfolio" style={{color:"var(--t2)",textDecoration:"none",fontSize:13,letterSpacing:".03em"}}>Portfolio</a>
-            <button onClick={toggleLanguage} className="mn" style={{background:"transparent",border:"1px solid var(--bd)",borderRadius:20,padding:"5px 12px",color:"var(--t2)",fontSize:11,cursor:"pointer"}}>{lang.toUpperCase()}</button>
+            <button type="button" onClick={toggleLanguage} aria-label={lang === "es" ? "Switch to English" : "Cambiar a español"} className="mn" style={{background:"transparent",border:"1px solid var(--bd)",borderRadius:20,padding:"5px 12px",color:"var(--t2)",fontSize:11,cursor:"pointer"}}>{lang.toUpperCase()}</button>
           </div>
         </div>
       </nav>
@@ -197,9 +200,9 @@ export default function HomeSupremePremium() {
       <section style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",padding:"120px 24px 80px",position:"relative"}}>
         <div className="hero-ambient" style={{position:"absolute",top:"20%",left:"50%",transform:"translate(-50%,-50%)",width:600,height:600,background:"radial-gradient(ellipse,rgba(201,169,110,.035) 0%,transparent 70%)",pointerEvents:"none"}}/>
         <div style={{maxWidth:880,textAlign:"center",position:"relative"}}>
-          <div className="ht sy" style={{fontSize:"clamp(2.4rem,5.5vw,4.2rem)",fontWeight:800,lineHeight:1.05,letterSpacing:"-0.03em",marginBottom:22}}>
+          <h1 className="ht sy" style={{fontSize:"clamp(2.4rem,5.5vw,4.2rem)",fontWeight:800,lineHeight:1.05,letterSpacing:"-0.03em",marginBottom:22}}>
             {i.hero.title.split(" ").map((w,j)=><span key={j} style={{marginRight:".28em"}}>{w}</span>)}
-          </div>
+          </h1>
           <p style={{color:"var(--t2)",fontSize:17,lineHeight:1.6,marginBottom:44,maxWidth:580,margin:"0 auto 44px"}}>{i.hero.sub}</p>
           <a href="#form" className="bp" style={{display:"inline-block",textDecoration:"none"}}><span>{i.hero.cta}</span></a>
         </div>
@@ -249,21 +252,21 @@ export default function HomeSupremePremium() {
           <p style={{color:"var(--t2)",fontSize:15}}>{i.form.sub}</p>
         </div>
         <form onSubmit={submit} className="gc ro" style={{padding:36}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
-            <input className="if" placeholder={i.form.company} value={fd.companyName} onChange={e=>setFd({...fd,companyName:e.target.value})} required/>
-            <input className="if" placeholder={i.form.contact} value={fd.contactName} onChange={e=>setFd({...fd,contactName:e.target.value})} required/>
+          <div className="ar-form-grid" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
+            <input className="if" aria-label={i.form.company} autoComplete="organization" placeholder={i.form.company} value={fd.companyName} onChange={e=>setFd({...fd,companyName:e.target.value})} required/>
+            <input className="if" aria-label={i.form.contact} autoComplete="name" placeholder={i.form.contact} value={fd.contactName} onChange={e=>setFd({...fd,contactName:e.target.value})} required/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
-            <input className="if" type="email" placeholder={i.form.email} value={fd.email} onChange={e=>setFd({...fd,email:e.target.value})} required/>
-            <input className="if" placeholder={i.form.phone} value={fd.phone} onChange={e=>setFd({...fd,phone:e.target.value})}/>
+          <div className="ar-form-grid" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
+            <input className="if" type="email" aria-label={i.form.email} autoComplete="email" placeholder={i.form.email} value={fd.email} onChange={e=>setFd({...fd,email:e.target.value})} required/>
+            <input className="if" type="tel" aria-label={i.form.phone} autoComplete="tel" placeholder={i.form.phone} value={fd.phone} onChange={e=>setFd({...fd,phone:e.target.value})}/>
           </div>
           <div style={{marginBottom:14}}>
-            <select className="if" value={fd.sector} onChange={e=>setFd({...fd,sector:e.target.value as any})}>
+            <select className="if" aria-label={i.form.sector} value={fd.sector} onChange={e=>setFd({...fd,sector:e.target.value as any})}>
               {Object.entries(i.form.sectors).map(([k,v])=><option key={k} value={k} style={{background:"#0a0a0a"}}>{v}</option>)}
             </select>
           </div>
           <div style={{marginBottom:22}}>
-            <textarea className="if" placeholder={i.form.desc} value={fd.notes} onChange={e=>setFd({...fd,notes:e.target.value})} style={{minHeight:110,resize:"vertical"}}/>
+            <textarea className="if" aria-label={i.form.desc} placeholder={i.form.desc} value={fd.notes} onChange={e=>setFd({...fd,notes:e.target.value})} style={{minHeight:110,resize:"vertical"}}/>
           </div>
           <button type="submit" className="bp" disabled={sending} style={{width:"100%"}}><span>{sending?i.form.sending:i.form.submit}</span></button>
         </form>
