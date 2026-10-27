@@ -4,6 +4,7 @@ import { getDb } from "./db";
 import { leads, visits, expenses, legalCompliance, quotations } from "../drizzle/schema";
 import { eq, and } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
+import { buildPublicLeadRecord } from "./crm.public-lead";
 
 /**
  * CRM Router - Prospección B2B, Dietas, Anticipos, Cesión de Espacio
@@ -87,20 +88,12 @@ const mapLeadForCrm = (lead: typeof leads.$inferSelect) => ({
 export const crmRouter = router({
   // LEADS MANAGEMENT
   createLead: publicProcedure
-    .input(LeadSchema)
+    .input(LeadSchema.omit({ status: true }).strict())
     .mutation(async ({ input }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
-      await db.insert(leads).values({
-        name: input.contactName,
-        email: input.email,
-        phone: input.phone,
-        company: input.companyName,
-        source: input.sector,
-        status: statusToDb[input.status || "prospectado"],
-        notes: input.polygon ? `Polígono/puerto: ${input.polygon}\n${input.notes || ""}` : input.notes,
-      });
+      await db.insert(leads).values(buildPublicLeadRecord(input));
 
       return { success: true };
     }),
