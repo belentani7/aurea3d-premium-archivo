@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: npm install -g pnpm@9 --no-audit --no-fund
       - name: neutralise a malformed pnpm workspace file
         run: |
@@ -32,3 +32,9 @@ jobs:
           fi
       - if: steps.buildscript.outputs.present == 'true'
         run: pnpm run build
+      - name: Verify public CRM input boundaries (Vitest)
+        run: pnpm exec vitest run server/crm.public-lead.schema.test.ts
+      - name: Verify CRM mapping and homepage source contracts (Node)
+        run: |
+          node --experimental-strip-types --test tests/crm-public-lead.test.mjs
+          node --test tests/home-a11y.check.mjs
