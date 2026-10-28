@@ -60,6 +60,17 @@ describe("crm lead flow", () => {
     expect(after.find((lead) => lead.id === created!.id)?.status).toBe("cerrado");
   });
 
+  it("rejects public attempts to forge a CRM lifecycle status", async () => {
+    const publicCaller = appRouter.createCaller({ ...createContext("user"), user: null });
+    await expect(publicCaller.crm.createLead({
+      companyName: "CRM Flow Company",
+      contactName: "CRM Flow Contact",
+      email: testEmail,
+      sector: "industrial",
+      status: "cerrado",
+    } as any)).rejects.toMatchObject({ code: "BAD_REQUEST" });
+  });
+
   it("supports AutomationPanel CRUD and rejects private access for non-admin users", async () => {
     const adminCaller = appRouter.createCaller(createContext("admin"));
     const userCaller = appRouter.createCaller(createContext("user"));
